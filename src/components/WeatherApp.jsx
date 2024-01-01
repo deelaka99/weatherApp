@@ -15,9 +15,12 @@ function WeatherApp() {
     <div className="container">
       <div className="top-bar">
         <input type="text" className="cityInput" placeholder="Search..." />
-        <div className="searchIcon">
+        <div className="search-icon">
           <img src={SearchIcon} alt="searchIcon" />
         </div>
+      </div>
+      <div className="weather-image">
+        
       </div>
     </div>
   );
