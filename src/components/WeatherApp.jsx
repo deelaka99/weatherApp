@@ -11,6 +11,15 @@ import WindIcon from "../assets/wind.png";
 import HumidityIcon from "../assets/humidity.png";
 
 function WeatherApp() {
-  return <div>WeatherApp</div>;
+  return (
+    <div className="container">
+      <div className="top-bar">
+        <input type="text" className="cityInput" placeholder="Search..." />
+        <div className="searchIcon">
+          <img src={SearchIcon} alt="searchIcon" />
+        </div>
+      </div>
+    </div>
+  );
 }
 export default WeatherApp;
