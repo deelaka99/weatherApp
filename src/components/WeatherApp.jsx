@@ -75,39 +75,43 @@ function WeatherApp() {
   };
 
   return (
-    <div className="container">
-      <div className="top-bar">
-        <input type="text" className="cityInput" placeholder="Search..." />
-        <div
-          className="search-icon"
-          onClick={() => {
-            search();
-          }}
-        >
-          <img src={SearchIcon} alt="searchIcon" />
-        </div>
-      </div>
-      <div className="weather-image">
-        <img src={wIcon} alt="weather-image" />
-      </div>
-      <div className="weather-temp">24°C</div>
-      <div className="weather-location">London</div>
-      <div className="data-container">
-        <div className="element">
-          <img src={HumidityIcon} alt="icon" className="icon" />
-          <div className="data">
-            <div className="humidity-percent">64%</div>
-            <div className="text">Humidity</div>
+    <div>
+      <h1>Weather App</h1>
+      <div className="container">
+        <div className="top-bar">
+          <input type="text" className="cityInput" placeholder="Search..." />
+          <div
+            className="search-icon"
+            onClick={() => {
+              search();
+            }}
+          >
+            <img src={SearchIcon} alt="searchIcon" />
           </div>
         </div>
-        <div className="element">
-          <img src={WindIcon} alt="icon" className="icon" />
-          <div className="data">
-            <div className="wind-speed">18 km/h</div>
-            <div className="text">Wind Speed</div>
+        <div className="weather-image">
+          <img src={wIcon} alt="weather-image" />
+        </div>
+        <div className="weather-temp">24°C</div>
+        <div className="weather-location">London</div>
+        <div className="data-container">
+          <div className="element">
+            <img src={HumidityIcon} alt="icon" className="icon" />
+            <div className="data">
+              <div className="humidity-percent">64%</div>
+              <div className="text">Humidity</div>
+            </div>
+          </div>
+          <div className="element">
+            <img src={WindIcon} alt="icon" className="icon" />
+            <div className="data">
+              <div className="wind-speed">18 km/h</div>
+              <div className="text">Wind Speed</div>
+            </div>
           </div>
         </div>
       </div>
+      <p>&copy; PDW Kariyawasam</p>
     </div>
   );
 }
