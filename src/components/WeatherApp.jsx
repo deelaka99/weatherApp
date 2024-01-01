@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./weatherapp.css";
 
 import SearchIcon from "../assets/search.png";
@@ -11,6 +11,7 @@ import WindIcon from "../assets/wind.png";
 import HumidityIcon from "../assets/humidity.png";
 
 function WeatherApp() {
+  const [wIcon, setWIcon] = useState(CloudIcon);
   let apiKey = "743892ac620af7dd554232d98524bd46";
 
   const search = async () => {
@@ -31,9 +32,46 @@ function WeatherApp() {
     const location = document.getElementsByClassName("weather-location");
     //setting relevant data to the variables
     humidity[0].innerHTML = data.main.humidity + " %";
-    windSpeed[0].innerHTML = data.wind.speed + " Km/h";
-    temprature[0].innerHTML = data.main.temp + "°C";
+    windSpeed[0].innerHTML = Math.floor(data.wind.speed) + " Km/h";
+    temprature[0].innerHTML = Math.floor(data.main.temp) + "°C";
     location[0].innerHTML = data.name;
+
+    //setting icon accroding to the fetched data
+    if (data.weather[0].icon === "01d" || data.weather[0].icon === "01n") {
+      setWIcon(ClearIcon);
+    } else if (
+      data.weather[0].icon === "02d" ||
+      data.weather[0].icon === "02n"
+    ) {
+      setWIcon(CloudIcon);
+    } else if (
+      data.weather[0].icon === "03d" ||
+      data.weather[0].icon === "03n"
+    ) {
+      setWIcon(DrizzleIcon);
+    } else if (
+      data.weather[0].icon === "04d" ||
+      data.weather[0].icon === "04n"
+    ) {
+      setWIcon(DrizzleIcon);
+    } else if (
+      data.weather[0].icon === "09d" ||
+      data.weather[0].icon === "09n"
+    ) {
+      setWIcon(RainIcon);
+    } else if (
+      data.weather[0].icon === "10d" ||
+      data.weather[0].icon === "10n"
+    ) {
+      setWIcon(RainIcon);
+    } else if (
+      data.weather[0].icon === "13d" ||
+      data.weather[0].icon === "13n"
+    ) {
+      setWIcon(SnowIcon);
+    } else {
+      setWIcon(ClearIcon);
+    }
   };
 
   return (
@@ -50,7 +88,7 @@ function WeatherApp() {
         </div>
       </div>
       <div className="weather-image">
-        <img src={CloudIcon} alt="weather-image" />
+        <img src={wIcon} alt="weather-image" />
       </div>
       <div className="weather-temp">24°C</div>
       <div className="weather-location">London</div>
